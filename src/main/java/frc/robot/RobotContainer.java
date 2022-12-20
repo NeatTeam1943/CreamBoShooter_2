@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.RomiDrivetrain;
+import frc.robot.subsystems.Shoot;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /**
@@ -18,8 +19,6 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final RomiDrivetrain m_romiDrivetrain = new RomiDrivetrain();
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_romiDrivetrain);
   public static final Shoot shooter = new Shoot(); 
   public static final Joystick joystick = new Joystick(Constants.k_joystickPort);
 
@@ -30,7 +29,7 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
-    shooter.setDefaultCommand(new RobotContainer().m_autoCommand);
+    ShootCommand.setDefaultCommand(shooter.getDefaultCommand());
   }
 
   /**

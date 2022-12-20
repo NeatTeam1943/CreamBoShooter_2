@@ -4,10 +4,20 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class Shoot extends SubsystemBase {
   /** Creates a new Shoot. */
+  public WPI_TalonFX m_back = new WPI_TalonFX(Constants.k_motorPort);
+  public Joystick joystick = new Joystick(Constants.k_joystickPort);
+  // getting movement to the speed controller
+  public void Move(){
+  m_back.set(Constants.k_speed);
+  }
   public Shoot() {}
 
   @Override
