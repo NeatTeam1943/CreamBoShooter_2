@@ -4,9 +4,6 @@
 
 package frc.robot.commands;
 
-import com.fasterxml.jackson.databind.introspect.ConcreteBeanPropertyBase;
-
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
@@ -15,7 +12,7 @@ public class Shooter extends CommandBase {
   /** Creates a new shooter. */
   public Shooter() {
     // checking for reqs
-    addRequirements(RobotContainer.shooter);
+    addRequirements(RobotContainer.S_shoot);
   }
   // getting a boolean to check for input
 
@@ -41,7 +38,7 @@ public class Shooter extends CommandBase {
   public void execute() {
       // if the boolean is true run 
       if (Shooter.isInput && !Shooter.isEnd)
-        RobotContainer.shooter.m_back.set(Constants.k_speed);
+        RobotContainer.S_shoot.m_back.set(Constants.k_speed);
 
   }
 
