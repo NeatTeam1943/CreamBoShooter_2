@@ -23,7 +23,7 @@ public class RobotContainer {
   public static final Shoot S_shoot = new Shoot(); 
   public static final XboxController joystick = new XboxController(Constants.k_joystickPort);
 
-  public JoystickButton button1 = new JoystickButton(joystick, 1);
+  public JoystickButton button1 = new JoystickButton(joystick, Constants.k_joystickPort);
   // getting a defulte command
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
