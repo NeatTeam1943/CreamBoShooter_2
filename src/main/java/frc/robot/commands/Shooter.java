@@ -28,8 +28,8 @@ public class Shooter extends CommandBase {
   @Override
   public void initialize() {
         // getting the values of the key inputs
-        isInput = RobotContainer.joystick.getRawButtonPressed(Constants.k_buttonInfo); 
-        isEnd = RobotContainer.joystick.getRawButtonPressed(Constants.k_buttonInfo); 
+        isInput = RobotContainer.joystick.getAButton(); 
+        isEnd = RobotContainer.joystick.getBButton(); 
   }
   
 
