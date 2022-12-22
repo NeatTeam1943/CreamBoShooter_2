@@ -6,6 +6,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
+import frc.robot.Robot;
 import frc.robot.RobotContainer;
 
 public class Shooter extends CommandBase {
@@ -23,13 +24,10 @@ public class Shooter extends CommandBase {
    */
 
   // init the boolean values
-  static boolean isInput, isEnd; 
-
+  private boolean endInput;
   @Override
   public void initialize() {
-        // getting the values of the key inputs
-        isInput = RobotContainer.joystick.getAButton(); 
-        isEnd = RobotContainer.joystick.getBButton(); 
+    this.endInput = false;
   }
   
 
@@ -37,8 +35,10 @@ public class Shooter extends CommandBase {
   @Override
   public void execute() {
       // if the boolean is true run 
-      if (Shooter.isInput && !Shooter.isEnd)
-        RobotContainer.S_shoot.m_back.set(Constants.k_speed);
+    if (!RobotContainer.joystick.getAButtonPressed() && !this.endInput)
+      RobotContainer.S_shoot.Move();
+    else
+      this.endInput = true; 
 
   }
 

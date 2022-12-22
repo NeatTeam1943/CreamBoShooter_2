@@ -6,9 +6,11 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.PS4Controller.Button;
 import frc.robot.commands.Shooter;
 import frc.robot.subsystems.Shoot;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -21,14 +23,14 @@ public class RobotContainer {
   public static final Shoot S_shoot = new Shoot(); 
   public static final XboxController joystick = new XboxController(Constants.k_joystickPort);
 
+  public JoystickButton button1 = new JoystickButton(joystick, 1);
   // getting a defulte command
-  public static Shooter ShootCommand = new Shooter();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
-    S_shoot.setDefaultCommand(ShootCommand);
+    button1.whenPressed(new Shooter()); 
   }
 
   /**
