@@ -19,7 +19,7 @@ package frc.robot;
 */
 public final class Constants {
     // motor consts
-    public static final int k_motorPort = 1; 
+    public static final int k_motorPort = 2; 
     // joystick
     public static final int k_joystickPort = 0;
     // motor speed
