@@ -5,6 +5,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.PS4Controller.Button;
 import frc.robot.commands.Shooter;
@@ -22,7 +23,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   public static final Shoot S_shoot = new Shoot(); 
   public static final XboxController joystick = new XboxController(Constants.k_joystickPort);
-
+  
   public JoystickButton button1 = new JoystickButton(joystick, Constants.k_joystickPort);
   // getting a defulte command
 
@@ -30,7 +31,6 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
-    button1.whenPressed(new Shooter()); 
   }
 
   /**
@@ -39,7 +39,9 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {}
+  private void configureButtonBindings() {
+    button1.whenPressed(new Shooter()); 
+  }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
